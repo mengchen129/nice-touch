@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+    <style>
+        #tip {
+            padding: 5px;
+            background-color: dodgerblue;
+            color: #ffffff;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="tip"></div>
+
+<script src="nice-touch.js"></script>
+<script>
+    var tip = document.getElementById('tip');
+
+    niceTouch.config({
+        speed: 'slow',
+        precision: 'low'
+    }).addHandler(function(dt) {
+        tip.innerText = dt;
+        tip.style.display = 'block';
+        setTimeout(function() {
+            tip.style.display = 'none';
+        }, 500);
+    });
+</script>
+</body>
+</html>
